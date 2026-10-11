@@ -306,18 +306,34 @@
     font-size:13px;color:var(--text-faint);border:1px solid var(--border);padding:9px 14px;border-radius:8px;
   }
 
-  /* ---------- hackathons ---------- */
+  /* ---------- experience and recognition ---------- */
   .hack-track{position:relative;padding-left:2px;}
-  .hack-list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-  @media (max-width:900px){.hack-list{grid-template-columns:1fr 1fr;}}
-  @media (max-width:600px){.hack-list{grid-template-columns:1fr;}}
+  .hack-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+  @media (max-width:680px){.hack-list{grid-template-columns:1fr;}}
   .hack-card{
-    border:1px solid var(--border);border-radius:12px;padding:20px;background:var(--panel);
-    transition:border-color 0.2s ease, transform 0.2s ease;
+    position:relative;overflow:hidden;min-height:205px;
+    border:1px solid var(--border);border-radius:16px;padding:24px;background:var(--panel);
+    display:flex;flex-direction:column;align-items:flex-start;gap:12px;
+    transition:border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
   }
-  .hack-card:hover{border-color:var(--accent-soft-strong);transform:translateY(-3px);}
-  .hack-card .hc-mark{font-family:var(--font-mono);font-size:11px;color:var(--accent);margin-bottom:10px;}
-  .hack-card h4{font-size:15px;font-weight:600;line-height:1.4;}
+  .hack-card:before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--accent);opacity:.72;}
+  .hack-card:hover{border-color:var(--accent-soft-strong);transform:translateY(-4px);background:var(--panel-hover);}
+  .hc-top{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .hc-icon{width:44px;height:44px;display:grid;place-items:center;flex:none;border-radius:12px;
+    border:1px solid var(--accent-soft-strong);background:var(--accent-soft);color:var(--accent-bright);font-size:20px;}
+  .hack-card .hc-mark{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--accent);border:1px solid var(--accent-soft-strong);background:var(--accent-soft);padding:6px 9px;border-radius:20px;}
+  .hack-card h4{font-size:18px;font-weight:700;line-height:1.35;margin:0;}
+  .hack-card p{font-size:14px;line-height:1.7;color:var(--text-dim);margin:0;}
+  .hc-foot{margin-top:auto;padding-top:12px;width:100%;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:11px;color:var(--text-faint);}
+
+  /* Award cards get a stronger, celebratory treatment while staying in the site theme. */
+  .awards-list .hack-card{min-height:260px;padding:28px;background:linear-gradient(145deg,var(--panel),var(--bg-alt));}
+  .awards-list .hc-icon{width:54px;height:54px;font-size:25px;border-radius:15px;}
+  .awards-list .hc-mark{font-size:11px;}
+  .awards-list h4{font-size:21px;max-width:440px;}
+  .awards-list .award-result{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--accent-bright);font-family:var(--font-mono);}
+  .awards-list .award-result span{font-size:16px;}
 
   /* ---------- impact ---------- */
   .impact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
@@ -449,7 +465,7 @@
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
-      <a href="#achievements">Achievements</a>
+      <a href="#awards-recognition">Awards &amp; Recognition</a>
       <a href="#impact">Impact</a>
       <a href="#certifications">Certifications</a>
     </nav>
@@ -464,7 +480,7 @@
   <a href="#skills">Skills</a>
   <a href="#projects">Projects</a>
   <a href="#experience">Experience</a>
-  <a href="#achievements">Achievements</a>
+  <a href="#awards-recognition">Awards &amp; Recognition</a>
   <a href="#impact">Impact</a>
   <a href="#certifications">Certifications</a>
   <a href="#contact">Contact</a>
@@ -690,21 +706,66 @@
   </div>
 </section>
 
-<!-- ============ HACKATHONS / EXPERIENCE ============ -->
+<!-- ============ EXPERIENCE ============ -->
 <section id="experience" style="background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
   <div class="wrap">
     <div class="reveal">
       <div class="eyebrow">Experience</div>
-      <h2 class="section-title">Hackathons &amp; Innovation</h2>
-      <p class="section-sub">Competitions and challenges where ideas got pressure-tested against a clock.</p>
+      <h2 class="section-title">Experience &amp; Innovation</h2>
+      <p class="section-sub">Leadership, professional involvement, humanitarian technology, and collaborative building.</p>
     </div>
     <div class="hack-list stagger">
-      <div class="hack-card reveal" style="--i:0"><div class="hc-mark">Hackathon</div><h4>HackTronix 2.0</h4></div>
-      <div class="hack-card reveal" style="--i:1"><div class="hc-mark">Hackathon</div><h4>iTech AI Innovation Hackathon 2026</h4></div>
-      <div class="hack-card reveal" style="--i:2"><div class="hc-mark">Idea Challenge</div><h4>MSME Idea Hackathon 6.0</h4></div>
-      <div class="hack-card reveal" style="--i:3"><div class="hc-mark">Ideathon</div><h4>SBI Youth Ideathon</h4></div>
-      <div class="hack-card reveal" style="--i:4"><div class="hc-mark">Hackathon</div><h4>Convergence Mini Hackathon</h4></div>
-      <div class="hack-card reveal" style="--i:5"><div class="hc-mark">Coding Challenge</div><h4>AlgoArena Coding Challenge</h4></div>
+      <div class="hack-card reveal" style="--i:0">
+        <div class="hc-top"><div class="hc-icon" aria-hidden="true">◎</div><div class="hc-mark">Campus Engagement</div></div>
+        <h4>Campus Ambassador — MyGov India</h4>
+        <p>Connecting students with civic initiatives, opportunities, and public participation programmes.</p>
+        <div class="hc-foot">CIVIC PARTICIPATION · STUDENT OUTREACH</div>
+      </div>
+      <div class="hack-card reveal" style="--i:1">
+        <div class="hc-top"><div class="hc-icon" aria-hidden="true">⌘</div><div class="hc-mark">Professional Network</div></div>
+        <h4>IEEE Member</h4>
+        <p>Building a professional network and engaging with technical learning, engineering communities, and emerging ideas.</p>
+        <div class="hc-foot">ENGINEERING · CONTINUOUS LEARNING</div>
+      </div>
+      <div class="hack-card reveal" style="--i:2">
+        <div class="hc-top"><div class="hc-icon" aria-hidden="true">✳</div><div class="hc-mark">Technology for Good</div></div>
+        <h4>Mastermind — IEEE SIGHT</h4>
+        <p>Part of a group focused on humanitarian technologies and using engineering to address real-world community needs.</p>
+        <div class="hc-foot">HUMANITARIAN TECHNOLOGY · SOCIAL IMPACT</div>
+      </div>
+      <div class="hack-card reveal" style="--i:3">
+        <div class="hc-top"><div class="hc-icon" aria-hidden="true">↗</div><div class="hc-mark">Innovation &amp; Teamwork</div></div>
+        <h4>Hackathon Experience</h4>
+        <p>Working through time-bound challenges with teammates — shaping ideas, testing approaches, and strengthening practical problem-solving.</p>
+        <div class="hc-foot">IDEATION · COLLABORATION · PROTOTYPING</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AWARDS & RECOGNITION ============ -->
+<section id="awards-recognition">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Milestones</div>
+      <h2 class="section-title">Awards &amp; Recognition</h2>
+      <p class="section-sub">Two milestones celebrating technical problem-solving and innovation.</p>
+    </div>
+    <div class="hack-list awards-list stagger">
+      <div class="hack-card reveal" style="--i:0">
+        <div class="hc-top"><div class="hc-icon" aria-hidden="true">♜</div><div class="hc-mark">SQL · Database Skills</div></div>
+        <div class="award-result"><span>✦</span> RUNNER-UP</div>
+        <h4>SQL Database Query Challenge</h4>
+        <p>Recognised for SQL query writing and database problem-solving in a competitive technical challenge.</p>
+        <div class="hc-foot">LOYOLA COLLEGE · CHENNAI</div>
+      </div>
+      <div class="hack-card reveal" style="--i:1">
+        <div class="hc-top"><div class="hc-icon" aria-hidden="true">✧</div><div class="hc-mark">AI · Startup Innovation</div></div>
+        <div class="award-result"><span>✦</span> WINNER</div>
+        <h4>Build2Gether AI Startup Evaluathon 2026</h4>
+        <p>A winning milestone in an AI startup evaluation focused on shaping ideas into meaningful, problem-oriented innovation.</p>
+        <div class="hc-foot">AI INNOVATION · STARTUP EVALUATION · 2026</div>
+      </div>
     </div>
   </div>
 </section>
