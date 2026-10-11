@@ -910,13 +910,51 @@
       <div class="contact-line"><span class="cl-k">GitHub</span><a class="cl-v" href="https://github.com/Navaneethakirushnan" target="_blank" rel="noopener">github.com/Navaneethakirushnan</a></div>
       <div class="contact-line"><span class="cl-k">Phone</span><a class="cl-v" href="tel:+918438559714">+91 84385 59714</a></div>
     </div>
-    <form class="contact-form reveal" onsubmit="event.preventDefault(); this.reset(); document.getElementById('formMsg').style.display='block';">
-      <div class="field"><label for="cf-name">Name</label><input id="cf-name" type="text" required placeholder="Your name"></div>
-      <div class="field"><label for="cf-email">Email</label><input id="cf-email" type="email" required placeholder="you@example.com"></div>
-      <div class="field"><label for="cf-msg">Message</label><textarea id="cf-msg" required placeholder="What are you building?"></textarea></div>
-      <button type="submit" class="btn btn-primary" style="justify-content:center;">Send Message</button>
-      <p class="form-note" id="formMsg" style="display:none;color:var(--teal);">Thanks — this form needs a backend or service (e.g. Formspree) connected before it sends live.</p>
-    </form>
+    <form class="contact-form reveal" id="contactForm">
+  <div class="field">
+    <label for="cf-name">Name</label>
+    <input id="cf-name" type="text" required
+           placeholder="Your name">
+  </div>
+
+  <div class="field">
+    <label for="cf-email">Email</label>
+    <input id="cf-email" type="email" required
+           placeholder="you@example.com">
+  </div>
+
+  <div class="field">
+    <label for="cf-msg">Message</label>
+    <textarea id="cf-msg" required
+              placeholder="What are you building?"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary"
+          style="justify-content:center;">
+    Send Message
+  </button>
+</form>
+    <script>
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const name = document.getElementById("cf-name").value.trim();
+  const email = document.getElementById("cf-email").value.trim();
+  const message = document.getElementById("cf-msg").value.trim();
+
+  const text =
+    "Hello! I contacted you through your portfolio.\n\n" +
+    "Name: " + name + "\n" +
+    "Email: " + email + "\n" +
+    "Message: " + message;
+
+  const whatsappNumber = "918438559714";
+  const url = "https://wa.me/" + whatsappNumber +
+              "?text=" + encodeURIComponent(text);
+
+  window.open(url, "_blank");
+});
+</script>
   </div>
 </section>
 
